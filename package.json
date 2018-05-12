@@ -1,0 +1,74 @@
+{
+  "name": "empsychart",
+  "version": "0.1.0",
+  "description": "A new lib to create charts with nice animations",
+  "author": "Frederic Godin",
+  "repository": "Epimodev/empsychart",
+  "license": "MIT",
+  "main": "iife/index.js",
+  "module": "module/index.js",
+  "typings": "module/index.d.ts",
+  "keywords": [
+    "chart",
+    "canvas",
+    "typescript"
+  ],
+  "files": [
+    "src",
+    "iife",
+    "module"
+  ],
+  "scripts": {
+    "build": "yarn build-module && yarn build-iife",
+    "build-module": "rm -rf ./module && tsc",
+    "build-iife": "rm -rf ./iife && ts-node rollup/build.ts",
+    "lint": "tslint --project tsconfig.json --config tslint.json 'src/**/*.ts'",
+    "check-format": "prettier --list-different 'src/**/*.ts'",
+    "test": "jest",
+    "prepublish": "yarn lint && yarn check-format && yarn build"
+  },
+  "devDependencies": {
+    "@types/babel-core": "^6.25.3",
+    "@types/fs-extra": "^5.0.2",
+    "@types/jest": "^22.2.3",
+    "@types/uglify-js": "^3.0.2",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "fs-extra": "^6.0.1",
+    "husky": "^0.14.3",
+    "jest": "^22.4.3",
+    "jest-canvas-mock": "^1.0.2",
+    "prettier": "^1.12.1",
+    "rollup": "^0.58.2",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "ts-jest": "^22.4.6",
+    "ts-node": "^6.0.3",
+    "tslint": "^5.10.0",
+    "tslint-config-airbnb": "^5.8.0",
+    "typescript": "^2.8.3",
+    "uglify-js": "^3.3.24"
+  },
+  "dependencies": {
+    "reselect": "^3.0.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "((\\.|/)(test))\\.(ts)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ],
+    "setupFiles": [
+      "jest-canvas-mock"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn check-format"
+    }
+  }
+}

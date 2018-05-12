@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "outDir": "./module",
+    "sourceMap": false,
+    "declaration": true,
+    "strict": true,
+    "noUnusedLocals": false,
+    "moduleResolution": "node",
+    "target": "es2015",
+    "lib": [
+      "dom",
+      "es5",
+      "es6"
+    ],
+    "typeRoots" : [
+      "./node_modules/@types",
+      "./types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*"]
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./dist",
+    "./src/**/test.ts",
+    "node_modules"
+  ]
+}
