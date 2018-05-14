@@ -1,6 +1,6 @@
 {
   "name": "empsychart",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A new lib to create charts with nice animations",
   "author": "Frederic Godin",
   "repository": "Epimodev/empsychart",
